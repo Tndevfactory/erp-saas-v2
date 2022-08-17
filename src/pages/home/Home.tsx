@@ -162,12 +162,12 @@ const Home: React.FC = () => {
                 type="donut"
                 width="100%"
               />
-              {isOpen && (
+              {/* {isOpen && (
                 <h1 className="bg-red-500">
                   {" "}
                   access to redux toolkit store isopen{" "}
                 </h1>
-              )}
+              )} */}
             </Content>
           </Col>
           <Col
