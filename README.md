@@ -1,6 +1,9 @@
 
 # ERP-SAAS-v2
 
+Start date : 2022-08-16
+R&d Tactic
+
 New ERP software handling all services in an Entreprise (Timesheet, HR, Recruit, Immo, SCRUM ... )
 
 ## Screenshots
@@ -10,7 +13,7 @@ New ERP software handling all services in an Entreprise (Timesheet, HR, Recruit,
 
 ## Authors
 
-- [@tndev-art](https://tndev-art.com)
+- [@R&d Tactic](https://tac-tic.net/)
 
 
 ## License

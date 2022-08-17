@@ -33,27 +33,21 @@ import {
   Typography,
 } from "antd";
 
-import {
-  Link,
-  Outlet,
-  useNavigate,
-  useLocation,
-  Navigate,
-  NavLink,
-} from "react-router-dom";
-
 import type { SelectProps } from "antd/es/select";
-import Navbar from "../../components/Navbar";
-import HomeSider from "./HomeSider";
+import Navbar from "../../../components/Navbar";
+import HomeSider from "./../HomeSider";
 import { useDispatch, useSelector } from "react-redux";
-import { calculateTotals, getCartItems } from "../../features/cart/cartSlice";
+import {
+  calculateTotals,
+  getCartItems,
+} from "../../../features/cart/cartSlice";
 import { useEffect } from "react";
 
 const { Content } = Layout;
 const { useBreakpoint } = Grid;
 const { Title } = Typography;
 
-const Home: React.FC = () => {
+const HomeSubModule: React.FC = () => {
   // redux toolkit store
   const { cartItems, isLoading } = useSelector((store: any) => store.cart);
   const { isOpen } = useSelector((store: any) => store.modal);
@@ -278,4 +272,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomeSubModule;
