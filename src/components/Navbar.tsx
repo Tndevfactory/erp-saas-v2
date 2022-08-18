@@ -237,37 +237,57 @@ export default function Navbar() {
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
             <Menu.Item className="bg-slate-900 text-white ">
               {" "}
-              <NavLink to="/home">Accueil</NavLink>
+              <NavLink to="/home" className="bg-slate-900 text-white ">
+                Accueil
+              </NavLink>
             </Menu.Item>
           </Menu>
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
             <Menu.Item className="bg-slate-900 text-white ">
-              <NavLink to="/rh"> Ressource humaine</NavLink>
+              <NavLink to="/rh" className="bg-slate-900 text-white ">
+                {" "}
+                Ressource humaine
+              </NavLink>
             </Menu.Item>
           </Menu>
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
             <Menu.Item className="bg-slate-900 text-white ">
-              <NavLink to="/rh"> Immobilisation</NavLink>
+              <NavLink to="/immo" className="bg-slate-900 text-white ">
+                {" "}
+                Immobilisation
+              </NavLink>
             </Menu.Item>
           </Menu>
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
             <Menu.Item className="bg-slate-900 text-white ">
-              <NavLink to="/rh"> Finance</NavLink>
+              <NavLink to="/finance" className="bg-slate-900 text-white ">
+                {" "}
+                Finance
+              </NavLink>
             </Menu.Item>
           </Menu>
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
             <Menu.Item className="bg-slate-900 text-white  ">
-              <NavLink to="/rh"> Projet</NavLink>
+              <NavLink to="/projet" className="bg-slate-900 text-white ">
+                {" "}
+                Projet
+              </NavLink>
             </Menu.Item>
           </Menu>
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
             <Menu.Item className="bg-slate-900 text-white ">
-              <NavLink to="/rh"> Ticketing</NavLink>
+              <NavLink to="/ticketing" className="bg-slate-900 text-white ">
+                {" "}
+                Ticketing
+              </NavLink>
             </Menu.Item>
           </Menu>
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
             <Menu.Item className="bg-slate-900 text-white ">
-              <NavLink to="/rh"> Achat</NavLink>
+              <NavLink to="/achat" className="bg-slate-900 text-white ">
+                {" "}
+                Achat
+              </NavLink>
             </Menu.Item>
           </Menu>
         </Space>
