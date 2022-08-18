@@ -5,7 +5,7 @@
   "license": "",
   "author": "https://tndev-art.com/",
   
-  "homepage": ".",
+  "homepage": "https://erp-saas-v2.vercel.app/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
