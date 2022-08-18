@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Chart from "react-apexcharts";
+
 import {
   AppstoreOutlined,
   BarChartOutlined,
@@ -34,7 +35,10 @@ import {
 } from "antd";
 
 import type { SelectProps } from "antd/es/select";
-
+import { useDispatch, useSelector } from "react-redux";
+import { toggleCollapseLayout, showDrawer } from "../features/ui/uiSlice";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 // profil menu
 
 const profilMenu = (
@@ -42,27 +46,16 @@ const profilMenu = (
     items={[
       {
         key: "1",
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.antgroup.com"
-          >
-            Profil
-          </a>
-        ),
+        label: <Link to="/account/account1">Profil</Link>,
       },
       {
         key: "2",
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.aliyun.com"
-          >
-            Deconnexion
-          </a>
-        ),
+        label: <Link to="/config/config1">Configuration</Link>,
+      },
+      {
+        key: "3",
+        label: <h6>Deconnexion</h6>,
+        onClick: () => alert("logout"),
       },
     ]}
   />
@@ -157,8 +150,10 @@ const navbarMobile: MenuProps["items"] = [
 ];
 const { useBreakpoint } = Grid;
 
-export default function Navbar(props: any) {
-  const { collapsed, setCollapsed } = props;
+export default function Navbar() {
+  // redux toolkit store
+  const { isCollapsed } = useSelector((store: any) => store.ui);
+  const dispatch = useDispatch();
 
   // --- search
   const [options, setOptions] = useState<SelectProps<object>["options"]>([]);
@@ -171,21 +166,10 @@ export default function Navbar(props: any) {
     console.log("onSelect", value);
   };
   // --- endsearch
-  //*--- home drawer
 
-  const [visible, setVisible] = useState(false);
-
-  const showDrawer = () => {
-    setVisible(true);
-  };
-
-  const onClose = () => {
-    setVisible(false);
-  };
-  //*--- end home drawer
   const { Header } = Layout;
   const screens = useBreakpoint();
-  console.log(screens.lg);
+  // console.log(screens.lg);
 
   React.useEffect(() => {
     console.log(screens);
@@ -202,7 +186,8 @@ export default function Navbar(props: any) {
           padding: 1,
           paddingRight: 13,
           // marginLeft: !collapsed ? "200px" : "80px",
-          marginLeft: screens.lg ? (!collapsed ? "200px" : "80px") : "0px",
+          marginLeft: screens.lg ? (!isCollapsed ? "200px" : "80px") : "0px",
+          // marginLeft: !isCollapsed ? "200px" : "80px",
           // display: screens.lg ? "flex" : "none",
         }}
       >
@@ -213,22 +198,26 @@ export default function Navbar(props: any) {
             display: screens.lg ? "none" : "flex",
           }}
         >
-          <MenuOutlined className="ml-5" onClick={showDrawer} />
+          <MenuOutlined
+            className="ml-5"
+            onClick={() => dispatch(showDrawer())}
+          />
+
           <span className="text-white">ERP SAAS</span>
         </Space>
 
         <Space
           size="small"
-          className="trigger_menu desktop-menu 0"
+          className="trigger_menu desktop-menu "
           style={{
             display: screens.lg ? "flex" : "none",
           }}
         >
           {React.createElement(
-            collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+            isCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
             {
               className: "trigger",
-              onClick: () => setCollapsed(!collapsed),
+              onClick: () => dispatch(toggleCollapseLayout()),
             }
           )}
 
@@ -245,40 +234,32 @@ export default function Navbar(props: any) {
             items={navbarItems}
           /> */}
 
-          <Menu className="bg-slate-900 hover:bg-sky-700 ">
-            <Menu.Item className="bg-slate-900 text-white hover:bg-sky-700 ">
-              Accueil
-            </Menu.Item>
+          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
+            <Menu.Item className="bg-slate-900 text-white ">Accueil</Menu.Item>
           </Menu>
-          <Menu className="bg-slate-900 hover:bg-sky-700">
-            <Menu.Item className="bg-slate-900 text-white hover:bg-sky-700">
+          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
+            <Menu.Item className="bg-slate-900 text-white ">
               Ressource humaine
             </Menu.Item>
           </Menu>
-          <Menu className="bg-slate-900 hover:bg-sky-700">
-            <Menu.Item className="bg-slate-900 text-white hover:bg-sky-700">
+          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
+            <Menu.Item className="bg-slate-900 text-white ">
               Immobilisation
             </Menu.Item>
           </Menu>
-          <Menu className="bg-slate-900 hover:bg-sky-700">
-            <Menu.Item className="bg-slate-900 text-white hover:bg-sky-700">
-              Finance
-            </Menu.Item>
+          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
+            <Menu.Item className="bg-slate-900 text-white ">Finance</Menu.Item>
           </Menu>
-          <Menu className="bg-slate-900 hover:bg-sky-700">
-            <Menu.Item className="bg-slate-900 text-white hover:bg-sky-700 ">
-              Projet
-            </Menu.Item>
+          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
+            <Menu.Item className="bg-slate-900 text-white  ">Projet</Menu.Item>
           </Menu>
-          <Menu className="bg-slate-900 hover:bg-sky-700">
-            <Menu.Item className="bg-slate-900 text-white hover:bg-sky-700">
+          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
+            <Menu.Item className="bg-slate-900 text-white ">
               Ticketing
             </Menu.Item>
           </Menu>
-          <Menu className="bg-slate-900 hover:bg-sky-700">
-            <Menu.Item className="bg-slate-900 text-white hover:bg-sky-700">
-              Achat
-            </Menu.Item>
+          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
+            <Menu.Item className="bg-slate-900 text-white ">Achat</Menu.Item>
           </Menu>
         </Space>
 
@@ -290,17 +271,6 @@ export default function Navbar(props: any) {
           </Space>
         </Space>
       </Header>
-
-      <Drawer
-        title="Basic Drawer home-drawer"
-        placement="left"
-        onClose={onClose}
-        visible={visible}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Drawer>
     </>
   );
 }

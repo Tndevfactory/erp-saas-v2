@@ -49,7 +49,7 @@ const RhSideMenus: MenuProps["items"] = [
         // className={({ isActive }) =>
         //   isActive ? "text-red-500" : "text-gray-100"
         // }
-        to="home1"
+        to="projet1"
       >
         Gestion des contrats
       </NavLink>
@@ -136,16 +136,9 @@ export default function HomeSider() {
             color: "white",
           }}
         >
-          <Badge.Ribbon
-            text={isCollapsed ? "RH" : "Ressource humaine"}
-            className="border-0"
-          >
-            <Card
-              title={` `}
-              size="small"
-              className="bg-slate-900 border-0 text-white"
-            >
-              <Title level={5} className="bg-slate-900 border-0 text-white">
+          <Badge.Ribbon text={isCollapsed ? "RH" : "Ressource humaine"}>
+            <Card title={` `} size="small">
+              <Title level={5}>
                 {isCollapsed ? "ES" : "Elastic-solutions"}
               </Title>
             </Card>

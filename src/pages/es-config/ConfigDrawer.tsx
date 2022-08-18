@@ -2,7 +2,7 @@ import type { DrawerProps, RadioChangeEvent } from "antd";
 import { Button, Drawer, Radio, Space } from "antd";
 import React, { useState } from "react";
 
-const HomeDrawer: React.FC = () => {
+const ConfigDrawer: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -24,7 +24,7 @@ const HomeDrawer: React.FC = () => {
         onClose={onClose}
         visible={visible}
       >
-        <p>Home drawer...</p>
+        <p>Config drawer...</p>
         <p>Some contents...</p>
         <p>Some contents...</p>
       </Drawer>
@@ -32,4 +32,4 @@ const HomeDrawer: React.FC = () => {
   );
 };
 
-export default HomeDrawer;
+export default ConfigDrawer;
