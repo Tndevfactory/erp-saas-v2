@@ -38,7 +38,7 @@ import type { SelectProps } from "antd/es/select";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleCollapseLayout, showDrawer } from "../features/ui/uiSlice";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 // profil menu
 
 const profilMenu = (
@@ -235,31 +235,40 @@ export default function Navbar() {
           /> */}
 
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
-            <Menu.Item className="bg-slate-900 text-white ">Accueil</Menu.Item>
-          </Menu>
-          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
             <Menu.Item className="bg-slate-900 text-white ">
-              Ressource humaine
+              {" "}
+              <NavLink to="/home">Accueil</NavLink>
             </Menu.Item>
           </Menu>
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
             <Menu.Item className="bg-slate-900 text-white ">
-              Immobilisation
+              <NavLink to="/rh"> Ressource humaine</NavLink>
             </Menu.Item>
-          </Menu>
-          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
-            <Menu.Item className="bg-slate-900 text-white ">Finance</Menu.Item>
-          </Menu>
-          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
-            <Menu.Item className="bg-slate-900 text-white  ">Projet</Menu.Item>
           </Menu>
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
             <Menu.Item className="bg-slate-900 text-white ">
-              Ticketing
+              <NavLink to="/rh"> Immobilisation</NavLink>
             </Menu.Item>
           </Menu>
           <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
-            <Menu.Item className="bg-slate-900 text-white ">Achat</Menu.Item>
+            <Menu.Item className="bg-slate-900 text-white ">
+              <NavLink to="/rh"> Finance</NavLink>
+            </Menu.Item>
+          </Menu>
+          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
+            <Menu.Item className="bg-slate-900 text-white  ">
+              <NavLink to="/rh"> Projet</NavLink>
+            </Menu.Item>
+          </Menu>
+          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
+            <Menu.Item className="bg-slate-900 text-white ">
+              <NavLink to="/rh"> Ticketing</NavLink>
+            </Menu.Item>
+          </Menu>
+          <Menu className="bg-slate-900 border-0 border-b-2 border-slate-900 hover:border-indigo-500 ">
+            <Menu.Item className="bg-slate-900 text-white ">
+              <NavLink to="/rh"> Achat</NavLink>
+            </Menu.Item>
           </Menu>
         </Space>
 
