@@ -120,11 +120,8 @@ const Index: React.FC = () => {
   //   ))}
   console.log(screens);
   return (
-    <Layout>
-      <HomeSider />
-      <Layout className="site-layout bg-gray-100 min-h-screen">
-        <Outlet />
-      </Layout>
+    <Layout className="site-layout bg-gray-100 min-h-screen">
+      <Outlet />
     </Layout>
   );
 };

@@ -36,7 +36,7 @@ import {
 import type { SelectProps } from "antd/es/select";
 import type { MenuProps } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleCollapseLayout } from "../../features/ui/uiSlice";
+import { toggleCollapseLayout } from "../features/ui/uiSlice";
 import { useEffect } from "react";
 const { Sider, Content } = Layout;
 
@@ -101,7 +101,7 @@ const RhSideMenus: MenuProps["items"] = [
 const { Title } = Typography;
 const { useBreakpoint } = Grid;
 
-export default function HomeSider() {
+export default function Hsider() {
   const { isCollapsed } = useSelector((store: any) => store.ui);
   // console.log("isCollapsed");
   // console.log(isCollapsed);
@@ -109,19 +109,21 @@ export default function HomeSider() {
 
   const screens = useBreakpoint();
   console.log(screens.lg);
+
+  const styleHSider: React.CSSProperties = {
+    display: screens.lg ? "block" : "none",
+    overflow: "auto",
+    height: "100vh",
+    position: "fixed",
+    left: 0,
+    top: 0,
+    bottom: 0,
+  };
   return (
     <>
       <Sider
         className="bg-slate-blue text-yellow-50"
-        style={{
-          display: screens.lg ? "block" : "none",
-          overflow: "auto",
-          height: "100vh",
-          position: "fixed",
-          left: 0,
-          top: 0,
-          bottom: 0,
-        }}
+        style={styleHSider}
         trigger={null}
         collapsible
         collapsed={isCollapsed}

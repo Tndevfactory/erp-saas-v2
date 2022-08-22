@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./style/app.less";
 import { useState } from "react";
 
 import {
@@ -8,7 +9,6 @@ import {
   Navigate,
   useLocation,
 } from "react-router-dom";
-import "./style/app.less";
 
 // ltr rtl
 import { ConfigProvider } from "antd";
@@ -33,28 +33,35 @@ import Login from "./pages/auth/Login";
 
 // Home
 import Home from "./pages/home/Index";
-import Home1 from "./pages/home/home-sider-drawer-modules/Home1";
+import Home1 from "./pages/home/home-modules/Home1";
 
 // Achat
 import Achat from "./pages/achats/Index";
-import Achat1 from "./pages/achats/achat-sider-drawer-modules/Achat1";
+import Achat1 from "./pages/achats/achat-modules/Achat1";
 import Achatgql from "./pages/achats/AchatGraphql";
 
 // Projets
 import Projet from "./pages/projets/Index";
-import Projet1 from "./pages/projets/projets-sider-drawer-modules/Projet1";
+import Projet1 from "./pages/projets/projets-modules/Projet1";
+
+// immo
+import Immo from "./pages/immobilisation/Index";
+import Immo1 from "./pages/immobilisation/immo-modules/Immo1";
+// finance
+import Finance from "./pages/finance/Index";
+import Finance1 from "./pages/finance/finance-modules/Finance1";
 
 // Rh
 import Rh from "./pages/rh/Index";
-import Rh1 from "./pages/rh/rh-sider-drawer-modules/Rh1";
+import Rh1 from "./pages/rh/rh-modules/Rh1";
 
 // Account
 import Account from "./pages/account/Index";
-import Account1 from "./pages/account/account-sider-drawer-modules/Account1";
+import Account1 from "./pages/account/account-modules/Account1";
 
 // Config
 import Config from "./pages/es-config/Index";
-import Config1 from "./pages/es-config/config-sider-drawer-modules/Config1";
+import Config1 from "./pages/es-config/config-modules/Config1";
 
 // check localstorage here
 //console.log(`${process.env.REACT_APP_BASE_PUBLIC_URL}/`);
@@ -104,6 +111,18 @@ const App: React.FunctionComponent<IApplicationProps> = (props) => {
               <Route path={`rh/*`} element={<Rh />}>
                 <Route path={`*`} element={<Rh1 />} />
                 <Route path={`rh1`} element={<Rh1 />} />
+              </Route>
+              <Route path={`ticketing/*`} element={<Rh />}>
+                <Route path={`*`} element={<Rh1 />} />
+                <Route path={`rh1`} element={<Rh1 />} />
+              </Route>
+              <Route path={`immo/*`} element={<Immo />}>
+                <Route path={`*`} element={<Immo1 />} />
+                <Route path={`immo1`} element={<Immo1 />} />
+              </Route>
+              <Route path={`finance/*`} element={<Finance />}>
+                <Route path={`*`} element={<Finance1 />} />
+                <Route path={`finance1`} element={<Finance1 />} />
               </Route>
               <Route path={`account/*`} element={<Account />}>
                 <Route path={`*`} element={<Account1 />} />

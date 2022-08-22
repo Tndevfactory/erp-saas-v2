@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface UiState {
+interface ConfigState {
   isCollapsed: boolean;
   isVisibleDrawer: boolean;
   lang: "ar" | "fr" | "en";
@@ -9,9 +9,9 @@ const initialState = {
   isCollapsed: false,
   isVisibleDrawer: false,
   lang: "ar",
-} as UiState;
+} as ConfigState;
 
-const uiSlice = createSlice({
+const configSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
@@ -39,6 +39,6 @@ export const {
   toggleCollapseLayout,
   showDrawer,
   closeDrawer,
-} = uiSlice.actions;
+} = configSlice.actions;
 
-export default uiSlice.reducer;
+export default configSlice.reducer;

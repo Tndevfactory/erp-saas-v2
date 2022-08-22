@@ -48,6 +48,7 @@ import HomeSider from "./RhSider";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleCollapseLayout } from "../../features/ui/uiSlice";
 import { useEffect } from "react";
+import RhSider from "./RhSider";
 
 const { Content } = Layout;
 const { useBreakpoint } = Grid;
@@ -120,11 +121,8 @@ const Index: React.FC = () => {
   //   ))}
   console.log(screens);
   return (
-    <Layout>
-      <HomeSider />
-      <Layout className="site-layout bg-gray-100 min-h-screen">
-        <Outlet />
-      </Layout>
+    <Layout className="site-layout bg-gray-100 min-h-screen">
+      <Outlet />
     </Layout>
   );
 };

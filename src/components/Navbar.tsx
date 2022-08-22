@@ -38,8 +38,16 @@ import type { SelectProps } from "antd/es/select";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleCollapseLayout, showDrawer } from "../features/ui/uiSlice";
 import { useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
+import {
+  NavLink,
+  Link,
+  useLocation,
+  useNavigate,
+  useMatch,
+} from "react-router-dom";
 // profil menu
+
+import Hsider from "./Hsider";
 
 const profilMenu = (
   <Menu
@@ -172,47 +180,23 @@ export default function Navbar() {
   // console.log(screens.lg);
 
   React.useEffect(() => {
-    console.log(screens);
+    // console.log(screens);
   }, [screens]);
+
+  let location = useLocation();
+
+  console.log(location.pathname);
+
+  const styleHeaderDesktop: React.CSSProperties = {
+    marginLeft: !isCollapsed ? "200px" : "80px",
+  };
   return (
     <>
       <Header
-        className="site-layout-background  bg-gray-900 text-white"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          // backgroundColor: "white",
-          padding: 1,
-          paddingRight: 13,
-          // marginLeft: !collapsed ? "200px" : "80px",
-          marginLeft: screens.lg ? (!isCollapsed ? "200px" : "80px") : "0px",
-          // marginLeft: !isCollapsed ? "200px" : "80px",
-          // display: screens.lg ? "flex" : "none",
-        }}
+        className="header-desktop site-layout-background  bg-gray-900 text-white"
+        style={styleHeaderDesktop}
       >
-        <Space
-          size="small"
-          className="trigger_menu mobile-menu"
-          style={{
-            display: screens.lg ? "none" : "flex",
-          }}
-        >
-          <MenuOutlined
-            className="ml-5"
-            onClick={() => dispatch(showDrawer())}
-          />
-
-          <span className="text-white">ERP SAAS</span>
-        </Space>
-
-        <Space
-          size="small"
-          className="trigger_menu desktop-menu "
-          style={{
-            display: screens.lg ? "flex" : "none",
-          }}
-        >
+        <Space size="small" className="trigger_menu desktop-menu ">
           {React.createElement(
             isCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
             {
@@ -300,6 +284,28 @@ export default function Navbar() {
           </Space>
         </Space>
       </Header>
+
+      {/* mobile menu header  */}
+      <Header className="header-mobile site-layout-background  bg-gray-900 text-white">
+        <Space size="small" className="trigger_menu mobile-menu">
+          <MenuOutlined
+            className="ml-5"
+            onClick={() => dispatch(showDrawer())}
+          />
+
+          <span className="text-white">ERP SAAS</span>
+        </Space>
+
+        <Space direction="vertical">
+          <Space wrap>
+            <Dropdown overlay={profilMenu} placement="bottomLeft">
+              <Avatar size={{ xs: 24, sm: 32 }} icon={<UserOutlined />} />
+            </Dropdown>
+          </Space>
+        </Space>
+      </Header>
+
+      <Hsider />
     </>
   );
 }

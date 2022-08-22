@@ -2,7 +2,7 @@ import type { DrawerProps, RadioChangeEvent } from "antd";
 import { Button, Drawer, Radio, Space } from "antd";
 import React, { useState } from "react";
 
-const RhDrawer: React.FC = () => {
+const Hdrawer: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -32,4 +32,4 @@ const RhDrawer: React.FC = () => {
   );
 };
 
-export default RhDrawer;
+export default Hdrawer;

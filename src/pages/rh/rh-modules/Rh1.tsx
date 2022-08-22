@@ -51,7 +51,7 @@ const { Content } = Layout;
 const { useBreakpoint } = Grid;
 const { Title } = Typography;
 
-const Home1: React.FC = () => {
+const Rh1: React.FC = () => {
   // redux toolkit store
   const { isCollapsed } = useSelector((store: any) => store.ui);
   const dispatch = useDispatch();
@@ -268,4 +268,4 @@ const Home1: React.FC = () => {
   );
 };
 
-export default Home1;
+export default Rh1;

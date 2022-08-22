@@ -101,7 +101,7 @@ const RhSideMenus: MenuProps["items"] = [
 const { Title } = Typography;
 const { useBreakpoint } = Grid;
 
-export default function HomeSider() {
+export default function ImmoSider() {
   const { isCollapsed } = useSelector((store: any) => store.ui);
   console.log("isCollapsed");
   console.log(isCollapsed);

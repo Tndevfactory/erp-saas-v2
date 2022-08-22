@@ -5,6 +5,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { calculateTotals, getCartItems } from "../features/cart/cartSlice";
 import { useEffect } from "react";
 
+import {
+  Layout,
+  Menu,
+  Divider,
+  MenuProps,
+  Space,
+  Avatar,
+  AutoComplete,
+  Input,
+  Dropdown,
+  Button,
+  Badge,
+  Card,
+  Row,
+  Col,
+  Grid,
+  Tag,
+  Typography,
+} from "antd";
+
 export default function () {
   // redux toolkit store
   const { cartItems, isLoading } = useSelector((store: any) => store.cart);
@@ -12,12 +32,11 @@ export default function () {
   const dispatch = useDispatch();
 
   return (
-    <div className="layout">
+    <div className="bg-gray-900">
       <Navbar />
-
-      <Outlet />
-
-      {/* <span className="text-center text-red-600"> footer from layout </span> */}
+      <Layout className="  bg-zinc-200  ">
+        <Outlet />
+      </Layout>
     </div>
   );
 }
